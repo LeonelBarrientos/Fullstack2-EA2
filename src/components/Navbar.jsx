@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import { Link } from 'react-router'
+import { UsuarioContext } from '../contexts/authContext'
 
-function Navbar({ nombre }) {
+function Navbar() {
+  const{usuario} = useContext(UsuarioContext);
   return (
     <header>
       <strong>Portal del estudiante</strong>
@@ -9,7 +12,7 @@ function Navbar({ nombre }) {
         <Link to="/registro">Registro</Link>
         <Link to="/perfil">Mi perfil</Link>
       </nav>
-      <span>{nombre ? `Hola, ${nombre}` : 'Invitado'}</span>
+      <span>{usuario? `Hola, ${usuario}` : 'Invitado'}</span>
     </header>
   )
 }
